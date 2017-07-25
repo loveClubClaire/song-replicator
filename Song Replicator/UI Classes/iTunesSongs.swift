@@ -10,7 +10,7 @@ import Cocoa
 
 class iTunesSongs: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     
-    var dataArray:[String] = ["Debasis Das","John Doe","Jane Doe","Mary Jane"]
+    var dataArray:[String] = ["Debasis Das","John Doe","Jane Doe","Mary Jane","James","Mary","Paul"]
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return dataArray.count
@@ -35,6 +35,7 @@ class iTunesSongs: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         return cellView
     }
    
+    //I THINK: Rows selected and currently being dragged
     func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pboard: NSPasteboard) -> Bool {
         let data:Data = NSKeyedArchiver.archivedData(withRootObject: rowIndexes)
         let registeredTypes = [NSPasteboard.PasteboardType.string]
@@ -43,26 +44,37 @@ class iTunesSongs: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         return true
     }
     
+    //I THINK: Determining where items currently being dragged can go
     func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation operation: NSTableView.DropOperation) -> NSDragOperation {
         if operation == .above {
             return .move
         }
-        return .every
+        return []
     }
     
+    //I THINK: Rearranging everything once user has dropped the items being dragged
     func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
+        //Get the indexes of items being moved
         let data:Data = info.draggingPasteboard().data(forType: NSPasteboard.PasteboardType.string)!
         let rowIndexes:IndexSet = NSKeyedUnarchiver.unarchiveObject(with: data) as! IndexSet
-        let value:String = dataArray[rowIndexes.first!]
-        dataArray.remove(at: rowIndexes.first!)
-        
-        if (row > dataArray.count) {
-            dataArray.insert(value, at: row-1)
+        //Create an array to store the items being moved
+        var movingData:[String] = []
+        //Itterate over the items being moved, add them to the movingData array and remove them from the dataArray
+        for index in rowIndexes.enumerated().reversed(){
+            let value:String = dataArray[index.element]
+            movingData.append(value)
+            dataArray.remove(at: index.element)
+        }
+        //Because we itterated over the items being removed backwards (to avoid indexs messing up and getting the wrong data) we reverse the movingData array to get in the correct order
+        movingData.reverse()
+        //Add the data to it's new location
+        if (row > rowIndexes.first!){
+            dataArray.insert(contentsOf: movingData, at: row-movingData.count)
         }
         else {
-            dataArray.insert(value, at: row)
+            dataArray.insert(contentsOf: movingData, at: row)
         }
-        
+        //Reload the table view
         tableView.reloadData()
         return true
     }
