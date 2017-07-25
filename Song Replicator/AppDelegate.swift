@@ -12,10 +12,12 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
-
+    @IBOutlet weak var tableView: NSTableView!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        let registeredTypes = [NSPasteboard.PasteboardType.string]
+        tableView.registerForDraggedTypes(registeredTypes)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
