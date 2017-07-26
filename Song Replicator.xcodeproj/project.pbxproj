@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C025DC181F285A0200C351E1 /* FinderSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C025DC171F285A0200C351E1 /* FinderSongs.swift */; };
 		C0B1450D1F26DF21008E1593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1450C1F26DF21008E1593 /* AppDelegate.swift */; };
 		C0B1450F1F26DF21008E1593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B1450E1F26DF21008E1593 /* Assets.xcassets */; };
 		C0B145121F26DF21008E1593 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0B145101F26DF21008E1593 /* MainMenu.xib */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C025DC171F285A0200C351E1 /* FinderSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSongs.swift; sourceTree = "<group>"; };
 		C0B145091F26DF21008E1593 /* Song Replicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Song Replicator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B1450C1F26DF21008E1593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0B1450E1F26DF21008E1593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		C0B145281F26EDA4008E1593 /* UI Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C025DC171F285A0200C351E1 /* FinderSongs.swift */,
 				C0B145291F26EDC9008E1593 /* iTunesSongs.swift */,
 			);
 			path = "UI Classes";
@@ -220,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0B1452A1F26EDC9008E1593 /* iTunesSongs.swift in Sources */,
+				C025DC181F285A0200C351E1 /* FinderSongs.swift in Sources */,
 				C0B1450D1F26DF21008E1593 /* AppDelegate.swift in Sources */,
 				C0B145301F26F880008E1593 /* CustomTableCellView.swift in Sources */,
 				C0B145331F26FF9A008E1593 /* GridClipTableView.swift in Sources */,
@@ -446,6 +450,7 @@
 				C0B145241F26DF21008E1593 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0B145251F26DF21008E1593 /* Build configuration list for PBXNativeTarget "Song ReplicatorTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +459,7 @@
 				C0B145271F26DF21008E1593 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

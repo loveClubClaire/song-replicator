@@ -12,12 +12,14 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
-    @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var iTunesSongsTableView: NSTableView!
+    @IBOutlet weak var finderSongsTableView: NSTableView!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         let registeredTypes = [NSPasteboard.PasteboardType.string]
-        tableView.registerForDraggedTypes(registeredTypes)
+        iTunesSongsTableView.registerForDraggedTypes(registeredTypes)
+        finderSongsTableView.registerForDraggedTypes(registeredTypes)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

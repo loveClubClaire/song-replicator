@@ -1,14 +1,14 @@
 //
-//  iTunesSongs.swift
+//  FinderSongs.swift
 //  Song Replicator
 //
-//  Created by Zachary Whitten on 7/24/17.
+//  Created by Zachary Whitten on 7/26/17.
 //  Copyright © 2017 16^2. All rights reserved.
 //
 
 import Cocoa
 
-class iTunesSongs: NSObject, NSTableViewDataSource, NSTableViewDelegate {
+class FinderSongs: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     
     var dataArray:[String] = ["Debasis Das","John Doe","Jane Doe","Mary Jane","James","Mary","Paul"]
     
@@ -23,8 +23,8 @@ class iTunesSongs: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         
         var cellView: CustomTableCellView?
         
-        if identifier == "iTunesSongs" {
-            cellView = (tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("iTunesSongCell"), owner: nil) as? CustomTableCellView)!
+        if identifier == "finderSongs" {
+            cellView = (tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("finderSongCell"), owner: nil) as? CustomTableCellView)!
             
             
             
@@ -35,7 +35,7 @@ class iTunesSongs: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         // return the populated NSTableCellView
         return cellView
     }
-   
+    
     //I THINK: Rows selected and currently being dragged
     func tableView(_ tableView: NSTableView, writeRowsWith rowIndexes: IndexSet, to pboard: NSPasteboard) -> Bool {
         let data:Data = NSKeyedArchiver.archivedData(withRootObject: rowIndexes)
@@ -79,4 +79,5 @@ class iTunesSongs: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         tableView.reloadData()
         return true
     }
-  }
+}
+
