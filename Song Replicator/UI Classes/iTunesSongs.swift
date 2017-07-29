@@ -10,6 +10,8 @@ import Cocoa
 
 class iTunesSongs: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     
+    @IBOutlet weak var finderSongs: FinderSongs!
+    
     var dataArray:[String] = ["Debasis Das","John Doe","Jane Doe","Mary Jane","James","Mary","Paul"]
     
     
@@ -79,4 +81,12 @@ class iTunesSongs: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         tableView.reloadData()
         return true
     }
+    
+    var isSelected = false
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        isSelected = true
+        finderSongs.isSelected = false
+        print("iTunes: " + isSelected.description + " Finder: " + finderSongs.isSelected.description)
+    }
+    
   }

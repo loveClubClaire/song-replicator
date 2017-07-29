@@ -19,8 +19,18 @@
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
-        <customObject id="r9M-UW-HUi" customClass="iTunesSongs" customModule="Song_Replicator" customModuleProvider="target"/>
-        <customObject id="yiL-EQ-CTq" customClass="FinderSongs" customModule="Song_Replicator" customModuleProvider="target"/>
+        <customObject id="r9M-UW-HUi" customClass="iTunesSongs" customModule="Song_Replicator" customModuleProvider="target">
+            <connections>
+                <outlet property="finderSongs" destination="yiL-EQ-CTq" id="eS8-pV-YRR"/>
+                <outlet property="finderTableView" destination="Z00-gk-T3b" id="VfM-eA-z4y"/>
+            </connections>
+        </customObject>
+        <customObject id="yiL-EQ-CTq" customClass="FinderSongs" customModule="Song_Replicator" customModuleProvider="target">
+            <connections>
+                <outlet property="iTunesSongs" destination="r9M-UW-HUi" id="uO1-vp-f3E"/>
+                <outlet property="iTunesTableView" destination="YUX-gF-HNA" id="PZF-7W-j3W"/>
+            </connections>
+        </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
@@ -684,7 +694,7 @@
             </items>
             <point key="canvasLocation" x="164" y="-178"/>
         </menu>
-        <window title="Song Replicator" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="Song Replicator" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="CustomMainWindow" customModule="Song_Replicator" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="501" height="654"/>
@@ -784,7 +794,7 @@
                             </subviews>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Mdr-g2-5Su">
-                            <rect key="frame" x="1" y="558" width="239" height="16"/>
+                            <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="vjw-JY-yZQ">
@@ -859,7 +869,7 @@
                             </subviews>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="cmh-Bv-BcY">
-                            <rect key="frame" x="1" y="558" width="237" height="16"/>
+                            <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="P3A-rs-ImX">
@@ -869,6 +879,12 @@
                     </scrollView>
                 </subviews>
             </view>
+            <connections>
+                <outlet property="finderSongsObject" destination="yiL-EQ-CTq" id="BEh-bZ-REa"/>
+                <outlet property="finderTableView" destination="Z00-gk-T3b" id="kF3-QD-OZO"/>
+                <outlet property="iTunesSongsObject" destination="r9M-UW-HUi" id="wme-Eb-Hqf"/>
+                <outlet property="iTunesTableView" destination="YUX-gF-HNA" id="u6U-Gp-2Pa"/>
+            </connections>
             <point key="canvasLocation" x="285.5" y="309"/>
         </window>
     </objects>

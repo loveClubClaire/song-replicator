@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C025DC181F285A0200C351E1 /* FinderSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C025DC171F285A0200C351E1 /* FinderSongs.swift */; };
+		C025DC1A1F2D039B00C351E1 /* CustomMainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C025DC191F2D039B00C351E1 /* CustomMainWindow.swift */; };
 		C0B1450D1F26DF21008E1593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1450C1F26DF21008E1593 /* AppDelegate.swift */; };
 		C0B1450F1F26DF21008E1593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B1450E1F26DF21008E1593 /* Assets.xcassets */; };
 		C0B145121F26DF21008E1593 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0B145101F26DF21008E1593 /* MainMenu.xib */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		C025DC171F285A0200C351E1 /* FinderSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSongs.swift; sourceTree = "<group>"; };
+		C025DC191F2D039B00C351E1 /* CustomMainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainWindow.swift; sourceTree = "<group>"; };
 		C0B145091F26DF21008E1593 /* Song Replicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Song Replicator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B1450C1F26DF21008E1593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0B1450E1F26DF21008E1593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				C0B1452F1F26F880008E1593 /* CustomTableCellView.swift */,
 				C0B145321F26FF9A008E1593 /* GridClipTableView.swift */,
+				C025DC191F2D039B00C351E1 /* CustomMainWindow.swift */,
 			);
 			path = "Custom Objects";
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				C0B1450D1F26DF21008E1593 /* AppDelegate.swift in Sources */,
 				C0B145301F26F880008E1593 /* CustomTableCellView.swift in Sources */,
 				C0B145331F26FF9A008E1593 /* GridClipTableView.swift in Sources */,
+				C025DC1A1F2D039B00C351E1 /* CustomMainWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
