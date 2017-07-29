@@ -23,10 +23,12 @@
             <connections>
                 <outlet property="finderSongs" destination="yiL-EQ-CTq" id="eS8-pV-YRR"/>
                 <outlet property="finderTableView" destination="Z00-gk-T3b" id="VfM-eA-z4y"/>
+                <outlet property="iTunesTableView" destination="YUX-gF-HNA" id="I4q-lK-oZn"/>
             </connections>
         </customObject>
         <customObject id="yiL-EQ-CTq" customClass="FinderSongs" customModule="Song_Replicator" customModuleProvider="target">
             <connections>
+                <outlet property="finderTableView" destination="Z00-gk-T3b" id="c5J-Pw-5yx"/>
                 <outlet property="iTunesSongs" destination="r9M-UW-HUi" id="uO1-vp-f3E"/>
                 <outlet property="iTunesTableView" destination="YUX-gF-HNA" id="PZF-7W-j3W"/>
             </connections>
@@ -880,8 +882,10 @@
                 </subviews>
             </view>
             <connections>
+                <outlet property="finderSongs" destination="yiL-EQ-CTq" id="BYk-w0-lce"/>
                 <outlet property="finderSongsObject" destination="yiL-EQ-CTq" id="BEh-bZ-REa"/>
                 <outlet property="finderTableView" destination="Z00-gk-T3b" id="kF3-QD-OZO"/>
+                <outlet property="iTunesSongs" destination="r9M-UW-HUi" id="vDv-aP-gvR"/>
                 <outlet property="iTunesSongsObject" destination="r9M-UW-HUi" id="wme-Eb-Hqf"/>
                 <outlet property="iTunesTableView" destination="YUX-gF-HNA" id="u6U-Gp-2Pa"/>
             </connections>

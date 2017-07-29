@@ -11,6 +11,7 @@ import Cocoa
 class FinderSongs: NSObject, NSTableViewDataSource, NSTableViewDelegate {
 
     @IBOutlet weak var iTunesSongs: iTunesSongs!
+    @IBOutlet weak var finderTableView: NSTableView!
     
     var dataArray:[String] = ["Debasis Das","John Doe","Jane Doe","Mary Jane","James","Mary","Paul"]
     
@@ -82,11 +83,39 @@ class FinderSongs: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         return true
     }
     
+    func deleteShows() {
+        if isSelected == true{
+            //get all selected elements in the tableview
+            var selectedSongs = finderTableView.selectedRowIndexes
+            //If the clicked show (if there is one) is not contained in the NSIndexSet, then add it. Because NSIndexSet is not mutable, we need to convert it into a NSMutableIndexSet, add the new value, and then set selectedShows to that new mutable index set.
+            if(selectedSongs.contains(finderTableView.clickedRow) == false && finderTableView.clickedRow != -1){
+                let selectedSongsMutable = NSMutableIndexSet.init(indexSet: selectedSongs)
+                selectedSongsMutable.add(finderTableView.clickedRow)
+                selectedSongs = selectedSongsMutable as IndexSet
+            }
+            //If the number of shows selected is greater than zero, alert the user about the deletion. If they agree to it, remove the items from the dataArray, save the new state of the dataArray, and refresh the tableView
+            if selectedSongs.count > 0 {
+                let myPopup: NSAlert = NSAlert()
+                myPopup.messageText = "Are you sure you want to remove the selected songs?"
+                myPopup.alertStyle = NSAlert.Style.warning
+                myPopup.addButton(withTitle: "OK")
+                myPopup.addButton(withTitle: "Cancel")
+                let res = myPopup.runModal()
+                if res == NSApplication.ModalResponse.alertFirstButtonReturn {
+                    let dataMutableArray = NSMutableArray(array: dataArray)
+                    dataMutableArray.removeObjects(at: selectedSongs)
+                    dataArray = dataMutableArray as AnyObject as! [String]
+                    finderTableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    //Keep track of which TableView is currently selected by the user
     var isSelected = false
     func tableViewSelectionDidChange(_ notification: Notification) {
         isSelected = true
         iTunesSongs.isSelected = false
-        print("iTunes: " + iTunesSongs.isSelected.description + " Finder: " + isSelected.description)
     }
 }
 
