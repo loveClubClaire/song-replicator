@@ -19,6 +19,7 @@
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
+        <customObject id="bqi-Ya-y2H" customClass="MainWindow" customModule="Song_Replicator" customModuleProvider="target"/>
         <customObject id="r9M-UW-HUi" customClass="iTunesSongs" customModule="Song_Replicator" customModuleProvider="target">
             <connections>
                 <outlet property="finderSongs" destination="yiL-EQ-CTq" id="eS8-pV-YRR"/>
@@ -728,6 +729,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="loadFinderSongs:" target="bqi-Ya-y2H" id="EHQ-Ze-4Gb"/>
+                        </connections>
                     </button>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="48" horizontalPageScroll="10" verticalLineScroll="48" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="co5-ev-mcC">
                         <rect key="frame" x="-1" y="18" width="256" height="575"/>
