@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AppleScriptObjC
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -17,6 +18,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        //Required for the scripting bridge to function
+        Bundle.main.loadAppleScriptObjectiveCScripts()
+        //Allow for Table Views to have items dragged
         let registeredTypes = [NSPasteboard.PasteboardType.string]
         iTunesSongsTableView.registerForDraggedTypes(registeredTypes)
         finderSongsTableView.registerForDraggedTypes(registeredTypes)

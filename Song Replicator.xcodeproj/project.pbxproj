@@ -10,6 +10,7 @@
 		C025DC181F285A0200C351E1 /* FinderSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C025DC171F285A0200C351E1 /* FinderSongs.swift */; };
 		C025DC1A1F2D039B00C351E1 /* CustomMainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C025DC191F2D039B00C351E1 /* CustomMainWindow.swift */; };
 		C0ACD6371F2FB1A600E4C260 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACD6361F2FB1A600E4C260 /* MainWindow.swift */; };
+		C0ACD63E1F2FB94C00E4C260 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0ACD63D1F2FB94C00E4C260 /* AppleScriptObjC.framework */; };
 		C0B1450D1F26DF21008E1593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1450C1F26DF21008E1593 /* AppDelegate.swift */; };
 		C0B1450F1F26DF21008E1593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B1450E1F26DF21008E1593 /* Assets.xcassets */; };
 		C0B145121F26DF21008E1593 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0B145101F26DF21008E1593 /* MainMenu.xib */; };
@@ -33,6 +34,10 @@
 		C025DC171F285A0200C351E1 /* FinderSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSongs.swift; sourceTree = "<group>"; };
 		C025DC191F2D039B00C351E1 /* CustomMainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainWindow.swift; sourceTree = "<group>"; };
 		C0ACD6361F2FB1A600E4C260 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainWindow.swift; path = "Song Replicator/UI Classes/MainWindow.swift"; sourceTree = SOURCE_ROOT; };
+		C0ACD6391F2FB92700E4C260 /* ApplescriptBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplescriptBridge.swift; sourceTree = "<group>"; };
+		C0ACD63A1F2FB92700E4C260 /* MyApplescript.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = MyApplescript.applescript; sourceTree = "<group>"; };
+		C0ACD63B1F2FB92700E4C260 /* AppleScript-ObjC bridge functions 4:11:16.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "AppleScript-ObjC bridge functions 4:11:16.txt"; sourceTree = "<group>"; };
+		C0ACD63D1F2FB94C00E4C260 /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
 		C0B145091F26DF21008E1593 /* Song Replicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Song Replicator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B1450C1F26DF21008E1593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0B1450E1F26DF21008E1593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0ACD63E1F2FB94C00E4C260 /* AppleScriptObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,12 +71,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0ACD6381F2FB8F600E4C260 /* Applescript */ = {
+			isa = PBXGroup;
+			children = (
+				C0ACD63B1F2FB92700E4C260 /* AppleScript-ObjC bridge functions 4:11:16.txt */,
+				C0ACD6391F2FB92700E4C260 /* ApplescriptBridge.swift */,
+				C0ACD63A1F2FB92700E4C260 /* MyApplescript.applescript */,
+			);
+			path = Applescript;
+			sourceTree = "<group>";
+		};
+		C0ACD63C1F2FB94C00E4C260 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0ACD63D1F2FB94C00E4C260 /* AppleScriptObjC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C0B145001F26DF21008E1593 = {
 			isa = PBXGroup;
 			children = (
 				C0B1450B1F26DF21008E1593 /* Song Replicator */,
 				C0B1451C1F26DF21008E1593 /* Song ReplicatorTests */,
 				C0B1450A1F26DF21008E1593 /* Products */,
+				C0ACD63C1F2FB94C00E4C260 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +114,7 @@
 				C0B1450C1F26DF21008E1593 /* AppDelegate.swift */,
 				C0B145311F26FF75008E1593 /* Custom Objects */,
 				C0B145281F26EDA4008E1593 /* UI Classes */,
+				C0ACD6381F2FB8F600E4C260 /* Applescript */,
 				C0B1450E1F26DF21008E1593 /* Assets.xcassets */,
 				C0B145101F26DF21008E1593 /* MainMenu.xib */,
 				C0B145131F26DF21008E1593 /* Info.plist */,
