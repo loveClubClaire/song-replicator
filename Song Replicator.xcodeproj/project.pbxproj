@@ -11,6 +11,7 @@
 		C025DC1A1F2D039B00C351E1 /* CustomMainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C025DC191F2D039B00C351E1 /* CustomMainWindow.swift */; };
 		C0ACD6371F2FB1A600E4C260 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACD6361F2FB1A600E4C260 /* MainWindow.swift */; };
 		C0ACD63E1F2FB94C00E4C260 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0ACD63D1F2FB94C00E4C260 /* AppleScriptObjC.framework */; };
+		C0ACD6401F2FC25C00E4C260 /* SelectiTunesTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACD63F1F2FC25C00E4C260 /* SelectiTunesTracks.swift */; };
 		C0B1450D1F26DF21008E1593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1450C1F26DF21008E1593 /* AppDelegate.swift */; };
 		C0B1450F1F26DF21008E1593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B1450E1F26DF21008E1593 /* Assets.xcassets */; };
 		C0B145121F26DF21008E1593 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0B145101F26DF21008E1593 /* MainMenu.xib */; };
@@ -38,6 +39,7 @@
 		C0ACD63A1F2FB92700E4C260 /* MyApplescript.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = MyApplescript.applescript; sourceTree = "<group>"; };
 		C0ACD63B1F2FB92700E4C260 /* AppleScript-ObjC bridge functions 4:11:16.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "AppleScript-ObjC bridge functions 4:11:16.txt"; sourceTree = "<group>"; };
 		C0ACD63D1F2FB94C00E4C260 /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
+		C0ACD63F1F2FC25C00E4C260 /* SelectiTunesTracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectiTunesTracks.swift; sourceTree = "<group>"; };
 		C0B145091F26DF21008E1593 /* Song Replicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Song Replicator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B1450C1F26DF21008E1593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0B1450E1F26DF21008E1593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +91,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C0ACD6411F2FC26300E4C260 /* NSTableView's */ = {
+			isa = PBXGroup;
+			children = (
+				C0ACD63F1F2FC25C00E4C260 /* SelectiTunesTracks.swift */,
+				C025DC171F285A0200C351E1 /* FinderSongs.swift */,
+				C0B145291F26EDC9008E1593 /* iTunesSongs.swift */,
+			);
+			path = "NSTableView's";
+			sourceTree = "<group>";
+		};
 		C0B145001F26DF21008E1593 = {
 			isa = PBXGroup;
 			children = (
@@ -136,8 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				C0ACD6361F2FB1A600E4C260 /* MainWindow.swift */,
-				C025DC171F285A0200C351E1 /* FinderSongs.swift */,
-				C0B145291F26EDC9008E1593 /* iTunesSongs.swift */,
+				C0ACD6411F2FC26300E4C260 /* NSTableView's */,
 			);
 			path = "UI Classes";
 			sourceTree = "<group>";
@@ -257,6 +268,7 @@
 				C0B1452A1F26EDC9008E1593 /* iTunesSongs.swift in Sources */,
 				C025DC181F285A0200C351E1 /* FinderSongs.swift in Sources */,
 				C0B1450D1F26DF21008E1593 /* AppDelegate.swift in Sources */,
+				C0ACD6401F2FC25C00E4C260 /* SelectiTunesTracks.swift in Sources */,
 				C0B145301F26F880008E1593 /* CustomTableCellView.swift in Sources */,
 				C0B145331F26FF9A008E1593 /* GridClipTableView.swift in Sources */,
 				C025DC1A1F2D039B00C351E1 /* CustomMainWindow.swift in Sources */,
