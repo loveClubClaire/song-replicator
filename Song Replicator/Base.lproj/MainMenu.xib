@@ -23,10 +23,15 @@
             <connections>
                 <outlet property="albumTableView" destination="VuD-85-xLU" id="zOO-ol-LJH"/>
                 <outlet property="artistTableView" destination="TIx-rv-cGv" id="A2S-Fd-mnz"/>
+                <outlet property="selectiTunesTracksWindow" destination="nJC-uL-d92" id="WnB-Bg-CzD"/>
                 <outlet property="trackTableView" destination="IjS-4U-k2a" id="xJk-hZ-apw"/>
             </connections>
         </customObject>
-        <customObject id="bqi-Ya-y2H" customClass="MainWindow" customModule="Song_Replicator" customModuleProvider="target"/>
+        <customObject id="bqi-Ya-y2H" customClass="MainWindow" customModule="Song_Replicator" customModuleProvider="target">
+            <connections>
+                <outlet property="selectiTunesTracks" destination="cVc-JN-Dwa" id="HRW-Ok-zn4"/>
+            </connections>
+        </customObject>
         <customObject id="r9M-UW-HUi" customClass="iTunesSongs" customModule="Song_Replicator" customModuleProvider="target">
             <connections>
                 <outlet property="finderSongs" destination="yiL-EQ-CTq" id="eS8-pV-YRR"/>
@@ -720,6 +725,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="loadiTunesSongs:" target="bqi-Ya-y2H" id="CLw-NX-ZHT"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNa-wG-CQf">
                         <rect key="frame" x="210" y="606" width="81" height="32"/>
@@ -902,7 +910,7 @@
             </connections>
             <point key="canvasLocation" x="285.5" y="309"/>
         </window>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="nJC-uL-d92">
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="nJC-uL-d92">
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="131" y="158" width="700" height="450"/>

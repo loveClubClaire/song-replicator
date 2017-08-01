@@ -13,12 +13,23 @@ class SelectiTunesTracks: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet weak var artistTableView: NSTableView!
     @IBOutlet weak var albumTableView: NSTableView!
     @IBOutlet weak var trackTableView: NSTableView!
+    @IBOutlet weak var selectiTunesTracksWindow: NSWindow!
     
     var artistDataSource:[String] = ["Debasis Das","John Doe","Jane Doe","Mary Jane"]
     var albumDataSource:[String] = ["Debasis Das","John Doe","Jane Doe","Mary Jane"]
     var trackDataSource:[String] = ["Debasis Das","John Doe","Jane Doe","Mary Jane"]
     
+    var tracks = [Song]()
     
+    func spawnSelectiTunesTracksWindow(){
+        artistDataSource = Song.getAlbumArtists(Songs: tracks)
+        albumDataSource = Song.getAlbums(Songs: tracks)
+        artistTableView.reloadData()
+        albumTableView.reloadData()
+        trackTableView.reloadData()
+        selectiTunesTracksWindow.center()
+        selectiTunesTracksWindow.makeKeyAndOrderFront(self)
+    }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         if tableView == artistTableView {
@@ -28,7 +39,7 @@ class SelectiTunesTracks: NSObject, NSTableViewDataSource, NSTableViewDelegate {
             return albumDataSource.count
         }
         else if tableView == trackTableView {
-            return trackDataSource.count
+            return tracks.count
         }
         else{
             //THIS SHOULD NEVER HAPPEN
@@ -52,23 +63,23 @@ class SelectiTunesTracks: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         }
         if identifier == "name" {
             cellView = (tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NameCell"), owner: nil) as? NSTableCellView)!
-            cellView!.textField?.stringValue = trackDataSource[row]
+            cellView!.textField?.stringValue = tracks[row].name
         }
         if identifier == "time" {
             cellView = (tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TimeCell"), owner: nil) as? NSTableCellView)!
-            cellView!.textField?.stringValue = "0:00"
+            cellView!.textField?.stringValue = tracks[row].time
         }
         if identifier == "artist" {
             cellView = (tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ArtistCell"), owner: nil) as? NSTableCellView)!
-            cellView!.textField?.stringValue = "Artist"
+            cellView!.textField?.stringValue = tracks[row].artist
         }
         if identifier == "album" {
             cellView = (tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "AlbumCell"), owner: nil) as? NSTableCellView)!
-            cellView!.textField?.stringValue = "Album"
+            cellView!.textField?.stringValue = tracks[row].album
         }
         if identifier == "bitrate" {
             cellView = (tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BitrateCell"), owner: nil) as? NSTableCellView)!
-            cellView!.textField?.stringValue = "320 kbps"
+            cellView!.textField?.stringValue = String(tracks[row].bitRate) + " kbps"
         }
     
         // return the populated NSTableCellView

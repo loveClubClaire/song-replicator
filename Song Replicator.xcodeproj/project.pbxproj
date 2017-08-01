@@ -12,6 +12,10 @@
 		C0ACD6371F2FB1A600E4C260 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACD6361F2FB1A600E4C260 /* MainWindow.swift */; };
 		C0ACD63E1F2FB94C00E4C260 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0ACD63D1F2FB94C00E4C260 /* AppleScriptObjC.framework */; };
 		C0ACD6401F2FC25C00E4C260 /* SelectiTunesTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACD63F1F2FC25C00E4C260 /* SelectiTunesTracks.swift */; };
+		C0ACD6441F2FDFEC00E4C260 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACD6431F2FDFEC00E4C260 /* Song.swift */; };
+		C0ACD6451F302A8D00E4C260 /* ApplescriptBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACD6391F2FB92700E4C260 /* ApplescriptBridge.swift */; };
+		C0ACD6461F302A9000E4C260 /* MyApplescript.applescript in Sources */ = {isa = PBXBuildFile; fileRef = C0ACD63A1F2FB92700E4C260 /* MyApplescript.applescript */; };
+		C0ACD6471F302AA300E4C260 /* AppleScript-ObjC bridge functions 4:11:16.txt in Resources */ = {isa = PBXBuildFile; fileRef = C0ACD63B1F2FB92700E4C260 /* AppleScript-ObjC bridge functions 4:11:16.txt */; };
 		C0B1450D1F26DF21008E1593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1450C1F26DF21008E1593 /* AppDelegate.swift */; };
 		C0B1450F1F26DF21008E1593 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0B1450E1F26DF21008E1593 /* Assets.xcassets */; };
 		C0B145121F26DF21008E1593 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0B145101F26DF21008E1593 /* MainMenu.xib */; };
@@ -40,6 +44,7 @@
 		C0ACD63B1F2FB92700E4C260 /* AppleScript-ObjC bridge functions 4:11:16.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "AppleScript-ObjC bridge functions 4:11:16.txt"; sourceTree = "<group>"; };
 		C0ACD63D1F2FB94C00E4C260 /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
 		C0ACD63F1F2FC25C00E4C260 /* SelectiTunesTracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectiTunesTracks.swift; sourceTree = "<group>"; };
+		C0ACD6431F2FDFEC00E4C260 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		C0B145091F26DF21008E1593 /* Song Replicator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Song Replicator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B1450C1F26DF21008E1593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0B1450E1F26DF21008E1593 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,6 +106,14 @@
 			path = "NSTableView's";
 			sourceTree = "<group>";
 		};
+		C0ACD6421F2FDFD500E4C260 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C0ACD6431F2FDFEC00E4C260 /* Song.swift */,
+			);
+			path = "Custom Classes";
+			sourceTree = "<group>";
+		};
 		C0B145001F26DF21008E1593 = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				C0B1450C1F26DF21008E1593 /* AppDelegate.swift */,
-				C0B145311F26FF75008E1593 /* Custom Objects */,
+				C0ACD6421F2FDFD500E4C260 /* Custom Classes */,
+				C0B145311F26FF75008E1593 /* Custom UI */,
 				C0B145281F26EDA4008E1593 /* UI Classes */,
 				C0ACD6381F2FB8F600E4C260 /* Applescript */,
 				C0B1450E1F26DF21008E1593 /* Assets.xcassets */,
@@ -153,14 +167,14 @@
 			path = "UI Classes";
 			sourceTree = "<group>";
 		};
-		C0B145311F26FF75008E1593 /* Custom Objects */ = {
+		C0B145311F26FF75008E1593 /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
 				C0B1452F1F26F880008E1593 /* CustomTableCellView.swift */,
 				C0B145321F26FF9A008E1593 /* GridClipTableView.swift */,
 				C025DC191F2D039B00C351E1 /* CustomMainWindow.swift */,
 			);
-			path = "Custom Objects";
+			path = "Custom UI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +228,11 @@
 					C0B145081F26DF21008E1593 = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0900;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					C0B145181F26DF21008E1593 = {
 						CreatedOnToolsVersion = 9.0;
@@ -246,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0ACD6471F302AA300E4C260 /* AppleScript-ObjC bridge functions 4:11:16.txt in Resources */,
 				C0B1450F1F26DF21008E1593 /* Assets.xcassets in Resources */,
 				C0B145121F26DF21008E1593 /* MainMenu.xib in Resources */,
 			);
@@ -265,6 +285,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0ACD6461F302A9000E4C260 /* MyApplescript.applescript in Sources */,
+				C0ACD6451F302A8D00E4C260 /* ApplescriptBridge.swift in Sources */,
+				C0ACD6441F2FDFEC00E4C260 /* Song.swift in Sources */,
 				C0B1452A1F26EDC9008E1593 /* iTunesSongs.swift in Sources */,
 				C025DC181F285A0200C351E1 /* FinderSongs.swift in Sources */,
 				C0B1450D1F26DF21008E1593 /* AppDelegate.swift in Sources */,
@@ -417,7 +440,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Song Replicator/Song_Replicator.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Song Replicator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -434,7 +456,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Song Replicator/Song_Replicator.entitlements";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Song Replicator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

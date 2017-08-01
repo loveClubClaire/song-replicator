@@ -16,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var iTunesSongsTableView: NSTableView!
     @IBOutlet weak var finderSongsTableView: NSTableView!
 
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         //Required for the scripting bridge to function
@@ -24,6 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let registeredTypes = [NSPasteboard.PasteboardType.string]
         iTunesSongsTableView.registerForDraggedTypes(registeredTypes)
         finderSongsTableView.registerForDraggedTypes(registeredTypes)
+
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
