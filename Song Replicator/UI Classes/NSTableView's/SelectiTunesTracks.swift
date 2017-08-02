@@ -19,9 +19,11 @@ class SelectiTunesTracks: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     var albumDataSource = [String]()
     var tracks = [Song]()
     
+    var masterTracks = [Song]()
     var allAlbums = [String]()
     
     func spawnSelectiTunesTracksWindow(){
+        masterTracks.append(contentsOf: tracks)
         artistDataSource = Song.getAlbumArtists(Songs: tracks)
         artistTableView.reloadData()
         artistTableView.selectRowIndexes(NSIndexSet(index: 0) as IndexSet, byExtendingSelection: false)
@@ -86,21 +88,45 @@ class SelectiTunesTracks: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     }
     
     func tableViewSelectionDidChange(_ notification: Notification){
+        print(artistTableView.selectedRow); print(albumTableView.selectedRow)
+        let selectedArtist = artistDataSource[artistTableView.selectedRow]
+        let selectedAlbum:String; if albumDataSource.count > 0{selectedAlbum = albumDataSource[albumTableView.selectedRow] } else {selectedAlbum = ""}
         if notification.object as? NSTableView == artistTableView {
-            if artistDataSource[artistTableView.selectedRow].starts(with: "All ("){
+            if selectedArtist.starts(with: "All ("){
                 if allAlbums.count == 0{
                     allAlbums = Song.getAlbums(Songs: tracks)
                 }
                 albumDataSource = allAlbums
             }
             else{
-                albumDataSource = Song.getAlbumsBy(artist: artistDataSource[artistTableView.selectedRow], songs: tracks)
+                albumDataSource = Song.getAlbumsBy(artist: selectedArtist, songs: masterTracks)
             }
             albumTableView.reloadData()
             albumTableView.selectRowIndexes(NSIndexSet(index: 0) as IndexSet, byExtendingSelection: false)
         }
         else if notification.object as? NSTableView == albumTableView {
             print("Album")
+            if selectedAlbum.starts(with: "All ("){
+                if selectedArtist.starts(with: "All ("){
+                    //Get all tracks
+                    tracks = masterTracks
+                }
+                else{
+                    //Get all tracks assoicated with artist
+                    tracks = Song.getTracksBy(artist: selectedArtist, offAlbum: nil, with: masterTracks)
+                }
+            }
+            else{
+                if selectedArtist.starts(with: "All ("){
+                   //Get all tracks assoicated with album
+                    tracks = Song.getTracksBy(artist: nil, offAlbum: selectedAlbum, with: masterTracks)
+                }
+                else{
+                    //Get all tracks assoicated with artist and album
+                    tracks = Song.getTracksBy(artist: selectedArtist, offAlbum: selectedAlbum, with: masterTracks)
+                }
+            }
+            trackTableView.reloadData()
         }
         else if notification.object as? NSTableView == trackTableView {
             print("Track")

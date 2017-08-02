@@ -18,6 +18,7 @@ class Song: NSObject {
     var bitRate: Int = 0
     var compilation: Bool = false
     
+    //Returns a string array of all albums by a given artist. We can ignore all albums that are in a compilation because the respect artists don't show in the artists table view, so they wont be passed to this funciton. If the track has an album artist we use that to look for corresponding albums (i.e. look for albums by Jay-Z not Jay-Z feat. Frank Ocean). We also do a case insensitive compare so that Albums by blink-182 and Blink-182 show up under the same artist.
     static func getAlbumsBy(artist: String, songs: [Song]) -> [String]{
         var matchingSongs = [Song]()
         for song in songs {
@@ -35,6 +36,50 @@ class Song: NSObject {
             }
         }
         return Song.getAlbums(Songs: matchingSongs)
+    }
+    
+    static func getTracksBy(artist: String?, offAlbum album: String?, with songs:[Song]) -> [Song]{
+        var matchingSongs = [Song]()
+        for song in songs {
+            //If only given an artist, get all tracks which match the artist
+            //See getAlbumsBy for detailed understanding of how this if statement logic works
+            if artist != nil && album == nil {
+                if song.albumArtist == ""{
+                    if song.artist.caseInsensitiveCompare(artist!) == .orderedSame{
+                        matchingSongs.append(song)
+                    }
+                }
+                else{
+                    if song.albumArtist.caseInsensitiveCompare(artist!) == .orderedSame{
+                        matchingSongs.append(song)
+                    }
+                }
+            }
+            //If only given an album, get all tracks which match the album
+            if artist == nil && album != nil {
+                if song.album.caseInsensitiveCompare(album!) == .orderedSame{
+                    matchingSongs.append(song)
+                }
+            }
+            //If we're given both an artist and an album, get all tracks which match both the artist and the album given
+            if artist != nil && album != nil {
+                if song.albumArtist == ""{
+                    if song.artist.caseInsensitiveCompare(artist!) == .orderedSame{
+                        if song.album.caseInsensitiveCompare(album!) == .orderedSame{
+                            matchingSongs.append(song)
+                        }
+                    }
+                }
+                else{
+                    if song.albumArtist.caseInsensitiveCompare(artist!) == .orderedSame{
+                        if song.album.caseInsensitiveCompare(album!) == .orderedSame{
+                            matchingSongs.append(song)
+                        }
+                    }
+                }
+            }
+        }
+        return Song.getTracks(Songs: matchingSongs)
     }
     
     
@@ -118,6 +163,15 @@ class Song: NSObject {
         return toReturn
     }
     
+    static func getTracks(Songs: [Song]) -> [Song]{
+        var toReturn = [Song]()
+        for song in Songs{
+            if toReturn.contains(song) == false {
+                toReturn.append(song)
+            }
+        }
+        return toReturn
+    }
     
     private static func removeLeadingArticle(string: String) -> String {
         let theArticle = "the "
