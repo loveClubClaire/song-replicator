@@ -15,17 +15,16 @@ class SelectiTunesTracks: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet weak var trackTableView: NSTableView!
     @IBOutlet weak var selectiTunesTracksWindow: NSWindow!
     
-    var artistDataSource:[String] = ["Debasis Das","John Doe","Jane Doe","Mary Jane"]
-    var albumDataSource:[String] = ["Debasis Das","John Doe","Jane Doe","Mary Jane"]
-    var trackDataSource:[String] = ["Debasis Das","John Doe","Jane Doe","Mary Jane"]
-    
+    var artistDataSource = [String]()
+    var albumDataSource = [String]()
     var tracks = [Song]()
+    
+    var allAlbums = [String]()
     
     func spawnSelectiTunesTracksWindow(){
         artistDataSource = Song.getAlbumArtists(Songs: tracks)
-        albumDataSource = Song.getAlbums(Songs: tracks)
         artistTableView.reloadData()
-        albumTableView.reloadData()
+        artistTableView.selectRowIndexes(NSIndexSet(index: 0) as IndexSet, byExtendingSelection: false)
         trackTableView.reloadData()
         selectiTunesTracksWindow.center()
         selectiTunesTracksWindow.makeKeyAndOrderFront(self)
@@ -86,4 +85,25 @@ class SelectiTunesTracks: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         return cellView
     }
     
+    func tableViewSelectionDidChange(_ notification: Notification){
+        if notification.object as? NSTableView == artistTableView {
+            if artistDataSource[artistTableView.selectedRow].starts(with: "All ("){
+                if allAlbums.count == 0{
+                    allAlbums = Song.getAlbums(Songs: tracks)
+                }
+                albumDataSource = allAlbums
+            }
+            else{
+                albumDataSource = Song.getAlbumsBy(artist: artistDataSource[artistTableView.selectedRow], songs: tracks)
+            }
+            albumTableView.reloadData()
+            albumTableView.selectRowIndexes(NSIndexSet(index: 0) as IndexSet, byExtendingSelection: false)
+        }
+        else if notification.object as? NSTableView == albumTableView {
+            print("Album")
+        }
+        else if notification.object as? NSTableView == trackTableView {
+            print("Track")
+        }
+    }
 }

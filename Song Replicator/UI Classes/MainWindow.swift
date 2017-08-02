@@ -40,6 +40,7 @@ class MainWindow: NSObject {
                 newSong.albumArtist = result[3][index] as! String
                 newSong.album = result[4][index] as! String
                 newSong.bitRate = result[5][index] as! Int
+                newSong.compilation = result[7][index] as! Bool
                 allSongs.append(newSong)
             }
             index = index + 1

@@ -16,13 +16,43 @@ class Song: NSObject {
     var albumArtist: String = ""
     var album: String = ""
     var bitRate: Int = 0
+    var compilation: Bool = false
+    
+    static func getAlbumsBy(artist: String, songs: [Song]) -> [String]{
+        var matchingSongs = [Song]()
+        for song in songs {
+            if song.compilation == false{
+                if song.albumArtist == ""{
+                    if song.artist.caseInsensitiveCompare(artist) == .orderedSame{
+                        matchingSongs.append(song)
+                    }
+                }
+                else{
+                    if song.albumArtist.caseInsensitiveCompare(artist) == .orderedSame{
+                        matchingSongs.append(song)
+                    }
+                }
+            }
+        }
+        return Song.getAlbums(Songs: matchingSongs)
+    }
+    
     
     static func getAlbumArtists(Songs: [Song]) -> [String]{
         var toReturn = [String]()
         for song in Songs{
-                if toReturn.contains(song.albumArtist) == false {
-                    toReturn.append(song.albumArtist)
+            if song.compilation == false {
+                if song.albumArtist == ""{
+                    if toReturn.contains(where: {$0.caseInsensitiveCompare(song.artist) == .orderedSame}) == false {
+                        toReturn.append(song.artist)
+                    }
                 }
+                else{
+                    if toReturn.contains(where: {$0.caseInsensitiveCompare(song.albumArtist) == .orderedSame}) == false {
+                        toReturn.append(song.albumArtist)
+                    }
+                }
+            }
         }
         toReturn.sort() {
             item1, item2 in
@@ -47,7 +77,8 @@ class Song: NSObject {
             //We return the comparison result
             return toReturn
         }
-        toReturn[0] = "All (\(toReturn.count) Artists)"
+        while toReturn.first == "" { toReturn.removeFirst() }
+        toReturn.insert("All (\(toReturn.count) Artists)", at: 0)
         return toReturn
     }
     
@@ -82,7 +113,8 @@ class Song: NSObject {
             //We return the comparison result
             return toReturn
         }
-        toReturn[0] = "All (\(toReturn.count) Albums)"
+        while toReturn.first == "" { toReturn.removeFirst() }
+        toReturn.insert("All (\(toReturn.count) Albums)", at: 0); if (toReturn.count == 2){toReturn[0] = "All (\(toReturn.count - 1) Album)"};
         return toReturn
     }
     
