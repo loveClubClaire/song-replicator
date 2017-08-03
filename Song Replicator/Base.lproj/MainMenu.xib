@@ -23,12 +23,14 @@
             <connections>
                 <outlet property="albumTableView" destination="VuD-85-xLU" id="zOO-ol-LJH"/>
                 <outlet property="artistTableView" destination="TIx-rv-cGv" id="A2S-Fd-mnz"/>
+                <outlet property="mainTableViewControls" destination="ysM-Wb-7qf" id="tsi-fy-Ug2"/>
                 <outlet property="selectiTunesTracksWindow" destination="nJC-uL-d92" id="WnB-Bg-CzD"/>
                 <outlet property="trackTableView" destination="IjS-4U-k2a" id="xJk-hZ-apw"/>
             </connections>
         </customObject>
         <customObject id="bqi-Ya-y2H" customClass="MainWindow" customModule="Song_Replicator" customModuleProvider="target">
             <connections>
+                <outlet property="mainTableViewControls" destination="ysM-Wb-7qf" id="dcw-Es-Za4"/>
                 <outlet property="selectiTunesTracks" destination="cVc-JN-Dwa" id="HRW-Ok-zn4"/>
             </connections>
         </customObject>

@@ -11,6 +11,7 @@ import Cocoa
 class MainWindow: NSObject {
 
     @IBOutlet weak var selectiTunesTracks: SelectiTunesTracks!
+    @IBOutlet weak var mainTableViewControls: MainTableViewControls!
     
     @IBAction func loadFinderSongs(_ sender: AnyObject) {
             let openPanel = NSOpenPanel()
@@ -22,12 +23,13 @@ class MainWindow: NSObject {
             if result == NSApplication.ModalResponse.OK {
                 var cellData = [SongCellData]()
                 for url in openPanel.urls {
-                    let newCell = SongCellData.init(aName: "Hold")
+                    let newCell = SongCellData.init(aName: url.lastPathComponent)
                     newCell.URL = url
+  
                     cellData.append(newCell)
                 }
-
-                //tableView.reloadData()
+                mainTableViewControls.finderDataArray = cellData
+                mainTableViewControls.finderTableView.reloadData()
             }
     }
 

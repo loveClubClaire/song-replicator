@@ -14,6 +14,7 @@ class SelectiTunesTracks: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet weak var albumTableView: NSTableView!
     @IBOutlet weak var trackTableView: NSTableView!
     @IBOutlet weak var selectiTunesTracksWindow: NSWindow!
+    @IBOutlet weak var mainTableViewControls: MainTableViewControls!
     
     var artistDataSource = [String]()
     var albumDataSource = [String]()
@@ -45,6 +46,9 @@ class SelectiTunesTracks: NSObject, NSTableViewDataSource, NSTableViewDelegate {
             newCell.uniqueID = tracks[index].uniqueID
             cellData.append(newCell)
         }
+        mainTableViewControls.iTunesDataArray = cellData
+        mainTableViewControls.iTunesTableView.reloadData()
+        self.cancelButton(self)
     }
     
     

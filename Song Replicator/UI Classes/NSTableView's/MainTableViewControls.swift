@@ -12,8 +12,8 @@ class MainTableViewControls: NSObject, NSTableViewDataSource, NSTableViewDelegat
     @IBOutlet weak var finderTableView: NSTableView!
     @IBOutlet weak var iTunesTableView: NSTableView!
     
-    var iTunesDataArray:[String] = ["Debasis Das","John Doe","Jane Doe","Mary Jane","James","Mary","Paul"]
-    var finderDataArray:[String] = ["Debasis Das","John Doe","Jane Doe","Mary Jane","James","Mary","Paul"]
+    var iTunesDataArray = [SongCellData]()
+    var finderDataArray = [SongCellData]()
     
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -35,14 +35,14 @@ class MainTableViewControls: NSObject, NSTableViewDataSource, NSTableViewDelegat
         var cellView: CustomTableCellView?
         if identifier == "finderSongs" {
             cellView = (tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("finderSongCell"), owner: nil) as? CustomTableCellView)!
-            cellView!.textField?.stringValue = finderDataArray[row]
-            cellView!.secondTextField?.stringValue = "Blink 182"
+            cellView!.textField?.stringValue = finderDataArray[row].name
+            cellView!.secondTextField?.stringValue = ""
         }
         
         if identifier == "iTunesSongs" {
             cellView = (tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("iTunesSongCell"), owner: nil) as? CustomTableCellView)!
-            cellView!.textField?.stringValue = iTunesDataArray[row]
-            cellView!.secondTextField?.stringValue = "Blink 182"
+            cellView!.textField?.stringValue = iTunesDataArray[row].name
+            cellView!.secondTextField?.stringValue = iTunesDataArray[row].artist!
         }
         // return the populated NSTableCellView
         return cellView
@@ -71,10 +71,10 @@ class MainTableViewControls: NSObject, NSTableViewDataSource, NSTableViewDelegat
         let data:Data = info.draggingPasteboard().data(forType: NSPasteboard.PasteboardType.string)!
         let rowIndexes:IndexSet = NSKeyedUnarchiver.unarchiveObject(with: data) as! IndexSet
         //Create an array to store the items being moved
-        var movingData:[String] = []
+        var movingData:[SongCellData] = []
         //Itterate over the items being moved, add them to the movingData array and remove them from the dataArray
         for index in rowIndexes.enumerated().reversed(){
-            let value:String = (tableView == finderTableView ? finderDataArray[index.element] : iTunesDataArray[index.element])
+            let value:SongCellData = (tableView == finderTableView ? finderDataArray[index.element] : iTunesDataArray[index.element])
             movingData.append(value)
             _ = (tableView == finderTableView ? finderDataArray.remove(at: index.element) : iTunesDataArray.remove(at: index.element))
         }
@@ -96,7 +96,7 @@ class MainTableViewControls: NSObject, NSTableViewDataSource, NSTableViewDelegat
     
     func deleteShows() {
         var tableView:NSTableView
-        var dataArray:[String]
+        var dataArray:[SongCellData]
         if isFinderViewSelected == true { tableView = finderTableView; dataArray = finderDataArray }
         else{ tableView = iTunesTableView; dataArray = iTunesDataArray }
         //get all selected elements in the tableview
@@ -118,8 +118,8 @@ class MainTableViewControls: NSObject, NSTableViewDataSource, NSTableViewDelegat
             if res == NSApplication.ModalResponse.alertFirstButtonReturn {
                 let dataMutableArray = NSMutableArray(array: dataArray)
                 dataMutableArray.removeObjects(at: selectedSongs)
-                if isFinderViewSelected == true { finderDataArray = dataMutableArray as AnyObject as! [String] }
-                else{ iTunesDataArray = dataMutableArray as AnyObject as! [String] }
+                if isFinderViewSelected == true { finderDataArray = dataMutableArray as AnyObject as! [SongCellData] }
+                else{ iTunesDataArray = dataMutableArray as AnyObject as! [SongCellData] }
                 tableView.reloadData()
             }
         }
