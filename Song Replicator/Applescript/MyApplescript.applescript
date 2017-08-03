@@ -14,6 +14,7 @@ script MyApplescript
                 set end of my_result to bit rate of tracks of my_playlist
                 set end of my_result to media kind of tracks of my_playlist
                 set end of my_result to compilation of tracks of my_playlist
+                set end of my_result to database ID of tracks of my_playlist
             end try
             return my_result
         end tell

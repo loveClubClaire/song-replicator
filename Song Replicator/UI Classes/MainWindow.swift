@@ -20,7 +20,13 @@ class MainWindow: NSObject {
             openPanel.canChooseFiles = true
             let result = openPanel.runModal()
             if result == NSApplication.ModalResponse.OK {
-                print(openPanel.urls)
+                var cellData = [SongCellData]()
+                for url in openPanel.urls {
+                    let newCell = SongCellData.init(aName: "Hold")
+                    newCell.URL = url
+                    cellData.append(newCell)
+                }
+
                 //tableView.reloadData()
             }
     }
@@ -41,16 +47,15 @@ class MainWindow: NSObject {
                 newSong.album = result[4][index] as! String
                 newSong.bitRate = result[5][index] as! Int
                 newSong.compilation = result[7][index] as! Bool
+                newSong.uniqueID = result[8][index] as! Int
                 allSongs.append(newSong)
             }
             index = index + 1
         }
-        
         //Get data for selecting songs in iTunes and add it to the selectiTunesTracks class
         selectiTunesTracks.tracks = allSongs
         //Show window
         selectiTunesTracks.spawnSelectiTunesTracksWindow()
-        
     }
     
 }

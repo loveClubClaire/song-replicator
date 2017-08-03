@@ -929,6 +929,9 @@
 DQ
 </string>
                         </buttonCell>
+                        <connections>
+                            <action selector="okButton:" target="cVc-JN-Dwa" id="AtV-Bh-aQs"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ZJ-iS-fGJ">
                         <rect key="frame" x="502" y="13" width="92" height="32"/>
@@ -940,6 +943,9 @@ DQ
 Gw
 </string>
                         </buttonCell>
+                        <connections>
+                            <action selector="cancelButton:" target="cVc-JN-Dwa" id="fTf-fs-iD0"/>
+                        </connections>
                     </button>
                     <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUk-u8-1Ju">
                         <rect key="frame" x="350" y="301" width="350" height="150"/>

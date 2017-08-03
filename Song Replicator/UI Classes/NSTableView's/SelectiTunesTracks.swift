@@ -32,6 +32,22 @@ class SelectiTunesTracks: NSObject, NSTableViewDataSource, NSTableViewDelegate {
         selectiTunesTracksWindow.makeKeyAndOrderFront(self)
     }
     
+    //Button Functions
+    @IBAction func cancelButton(_ sender: AnyObject) {
+        selectiTunesTracksWindow.orderOut(self)
+    }
+    
+    @IBAction func okButton(_ sender: AnyObject) {
+        var cellData = [SongCellData]()
+        for index in trackTableView.selectedRowIndexes{
+            let newCell = SongCellData.init(aName: tracks[index].name)
+            newCell.artist = tracks[index].artist
+            newCell.uniqueID = tracks[index].uniqueID
+            cellData.append(newCell)
+        }
+    }
+    
+    
     func numberOfRows(in tableView: NSTableView) -> Int {
         if tableView == artistTableView {
             return artistDataSource.count
