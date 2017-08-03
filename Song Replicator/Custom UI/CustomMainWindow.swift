@@ -9,15 +9,12 @@
 import Cocoa
 
 class CustomMainWindow: NSWindow {
-    
-    @IBOutlet weak var iTunesSongs: iTunesSongs!
-    @IBOutlet weak var finderSongs: FinderSongs!
+    @IBOutlet weak var mainTableViewControls: MainTableViewControls!
     
     override func keyDown(with anEvent: NSEvent) {
         //If the delete key (key code 51) is pressed call the delete function
         if(anEvent.keyCode == 51){
-            finderSongs.deleteShows()
-            iTunesSongs.deleteShows()
+            mainTableViewControls.deleteShows()
         }
             //Else just do what would have been expected
         else{

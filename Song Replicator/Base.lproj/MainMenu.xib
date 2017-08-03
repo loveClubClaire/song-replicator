@@ -32,18 +32,10 @@
                 <outlet property="selectiTunesTracks" destination="cVc-JN-Dwa" id="HRW-Ok-zn4"/>
             </connections>
         </customObject>
-        <customObject id="r9M-UW-HUi" customClass="iTunesSongs" customModule="Song_Replicator" customModuleProvider="target">
+        <customObject id="ysM-Wb-7qf" customClass="MainTableViewControls" customModule="Song_Replicator" customModuleProvider="target">
             <connections>
-                <outlet property="finderSongs" destination="yiL-EQ-CTq" id="eS8-pV-YRR"/>
-                <outlet property="finderTableView" destination="Z00-gk-T3b" id="VfM-eA-z4y"/>
-                <outlet property="iTunesTableView" destination="YUX-gF-HNA" id="I4q-lK-oZn"/>
-            </connections>
-        </customObject>
-        <customObject id="yiL-EQ-CTq" customClass="FinderSongs" customModule="Song_Replicator" customModuleProvider="target">
-            <connections>
-                <outlet property="finderTableView" destination="Z00-gk-T3b" id="c5J-Pw-5yx"/>
-                <outlet property="iTunesSongs" destination="r9M-UW-HUi" id="uO1-vp-f3E"/>
-                <outlet property="iTunesTableView" destination="YUX-gF-HNA" id="PZF-7W-j3W"/>
+                <outlet property="finderTableView" destination="Z00-gk-T3b" id="oqR-3J-FVs"/>
+                <outlet property="iTunesTableView" destination="YUX-gF-HNA" id="cka-5y-Lr5"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -808,8 +800,8 @@
                                         </tableColumn>
                                     </tableColumns>
                                     <connections>
-                                        <outlet property="dataSource" destination="r9M-UW-HUi" id="w3L-4A-l07"/>
-                                        <outlet property="delegate" destination="r9M-UW-HUi" id="5Gx-4G-E9M"/>
+                                        <outlet property="dataSource" destination="ysM-Wb-7qf" id="4AZ-tO-YnA"/>
+                                        <outlet property="delegate" destination="ysM-Wb-7qf" id="M6S-Vo-BqN"/>
                                     </connections>
                                 </tableView>
                             </subviews>
@@ -883,8 +875,8 @@
                                         </tableColumn>
                                     </tableColumns>
                                     <connections>
-                                        <outlet property="dataSource" destination="yiL-EQ-CTq" id="HeM-13-ctr"/>
-                                        <outlet property="delegate" destination="yiL-EQ-CTq" id="RUx-BG-O73"/>
+                                        <outlet property="dataSource" destination="ysM-Wb-7qf" id="gG2-bw-73U"/>
+                                        <outlet property="delegate" destination="ysM-Wb-7qf" id="mkL-8x-CzJ"/>
                                     </connections>
                                 </tableView>
                             </subviews>
@@ -901,12 +893,9 @@
                 </subviews>
             </view>
             <connections>
-                <outlet property="finderSongs" destination="yiL-EQ-CTq" id="BYk-w0-lce"/>
-                <outlet property="finderSongsObject" destination="yiL-EQ-CTq" id="BEh-bZ-REa"/>
                 <outlet property="finderTableView" destination="Z00-gk-T3b" id="kF3-QD-OZO"/>
-                <outlet property="iTunesSongs" destination="r9M-UW-HUi" id="vDv-aP-gvR"/>
-                <outlet property="iTunesSongsObject" destination="r9M-UW-HUi" id="wme-Eb-Hqf"/>
                 <outlet property="iTunesTableView" destination="YUX-gF-HNA" id="u6U-Gp-2Pa"/>
+                <outlet property="mainTableViewControls" destination="ysM-Wb-7qf" id="5Wb-B5-KWh"/>
             </connections>
             <point key="canvasLocation" x="285.5" y="309"/>
         </window>
@@ -951,7 +940,7 @@ Gw
                         <rect key="frame" x="350" y="301" width="350" height="150"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" id="Su7-7z-bvl">
-                            <rect key="frame" x="0.0" y="23" width="350" height="127"/>
+                            <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="9bP-hC-28l" viewBased="YES" id="VuD-85-xLU">
@@ -1003,7 +992,7 @@ Gw
                             </subviews>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="wef-pn-Q1U">
-                            <rect key="frame" x="1" y="118" width="348" height="16"/>
+                            <rect key="frame" x="0.0" y="7" width="0.0" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="h6k-YP-Zun">
@@ -1019,7 +1008,7 @@ Gw
                         <rect key="frame" x="0.0" y="61" width="700" height="240"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" id="Ip6-bj-9om">
-                            <rect key="frame" x="0.0" y="23" width="700" height="217"/>
+                            <rect key="frame" x="0.0" y="0.0" width="700" height="240"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" autosaveColumns="NO" rowSizeStyle="automatic" headerView="udA-JY-AOB" viewBased="YES" id="IjS-4U-k2a">
@@ -1203,7 +1192,7 @@ Gw
                             </subviews>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="MSL-TT-H6L">
-                            <rect key="frame" x="0.0" y="224" width="700" height="16"/>
+                            <rect key="frame" x="0.0" y="7" width="0.0" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="tk6-Yu-Shv">
@@ -1271,7 +1260,7 @@ Gw
                             </subviews>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="yKJ-D8-K1S">
-                            <rect key="frame" x="1" y="118" width="340" height="16"/>
+                            <rect key="frame" x="0.0" y="7" width="0.0" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="5ie-Vq-NHp">
