@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C025DC1A1F2D039B00C351E1 /* CustomMainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C025DC191F2D039B00C351E1 /* CustomMainWindow.swift */; };
+		C044914E1F34D9C10053832B /* String+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B211B1F34D9270092ECA0 /* String+Extention.swift */; };
+		C09B21191F34D8AE0092ECA0 /* iTunesSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09B21181F34D8AE0092ECA0 /* iTunesSong.swift */; };
 		C0ACD6371F2FB1A600E4C260 /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACD6361F2FB1A600E4C260 /* MainWindow.swift */; };
 		C0ACD63E1F2FB94C00E4C260 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0ACD63D1F2FB94C00E4C260 /* AppleScriptObjC.framework */; };
 		C0ACD6401F2FC25C00E4C260 /* SelectiTunesTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ACD63F1F2FC25C00E4C260 /* SelectiTunesTracks.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		C025DC191F2D039B00C351E1 /* CustomMainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainWindow.swift; sourceTree = "<group>"; };
+		C09B21181F34D8AE0092ECA0 /* iTunesSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSong.swift; sourceTree = "<group>"; };
+		C09B211B1F34D9270092ECA0 /* String+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extention.swift"; sourceTree = "<group>"; };
 		C0ACD6361F2FB1A600E4C260 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainWindow.swift; path = "Song Replicator/UI Classes/MainWindow.swift"; sourceTree = SOURCE_ROOT; };
 		C0ACD6391F2FB92700E4C260 /* ApplescriptBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplescriptBridge.swift; sourceTree = "<group>"; };
 		C0ACD63A1F2FB92700E4C260 /* MyApplescript.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = MyApplescript.applescript; sourceTree = "<group>"; };
@@ -78,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C09B211A1F34D90C0092ECA0 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				C09B211B1F34D9270092ECA0 /* String+Extention.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		C0ACD6381F2FB8F600E4C260 /* Applescript */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				C0ACD6431F2FDFEC00E4C260 /* Song.swift */,
+				C09B21181F34D8AE0092ECA0 /* iTunesSong.swift */,
 				C0ACD6481F33BD5B00E4C260 /* SongCellData.swift */,
 			);
 			path = "Custom Classes";
@@ -140,6 +153,7 @@
 				C0ACD6421F2FDFD500E4C260 /* Custom Classes */,
 				C0B145311F26FF75008E1593 /* Custom UI */,
 				C0B145281F26EDA4008E1593 /* UI Classes */,
+				C09B211A1F34D90C0092ECA0 /* Extentions */,
 				C0ACD6381F2FB8F600E4C260 /* Applescript */,
 				C0B1450E1F26DF21008E1593 /* Assets.xcassets */,
 				C0B145101F26DF21008E1593 /* MainMenu.xib */,
@@ -285,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C044914E1F34D9C10053832B /* String+Extention.swift in Sources */,
 				C0ACD6461F302A9000E4C260 /* MyApplescript.applescript in Sources */,
 				C0ACD6451F302A8D00E4C260 /* ApplescriptBridge.swift in Sources */,
 				C0ACD6441F2FDFEC00E4C260 /* Song.swift in Sources */,
@@ -295,6 +310,7 @@
 				C0B145301F26F880008E1593 /* CustomTableCellView.swift in Sources */,
 				C0B145331F26FF9A008E1593 /* GridClipTableView.swift in Sources */,
 				C025DC1A1F2D039B00C351E1 /* CustomMainWindow.swift in Sources */,
+				C09B21191F34D8AE0092ECA0 /* iTunesSong.swift in Sources */,
 				C0ACD6371F2FB1A600E4C260 /* MainWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

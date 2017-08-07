@@ -17,7 +17,7 @@ class Song: NSObject {
     var album: String = ""
     var bitRate: Int = 0
     var compilation: Bool = false
-    var uniqueID: Int = 0
+    var uniqueID: String = ""
     
     //Returns a string array of all albums by a given artist. We can ignore all albums that are in a compilation because the respect artists don't show in the artists table view, so they wont be passed to this funciton. If the track has an album artist we use that to look for corresponding albums (i.e. look for albums by Jay-Z not Jay-Z feat. Frank Ocean). We also do a case insensitive compare so that Albums by blink-182 and Blink-182 show up under the same artist.
     static func getAlbumsBy(artist: String, songs: [Song]) -> [String]{

@@ -49,7 +49,7 @@ class MainWindow: NSObject {
                 newSong.album = result[4][index] as! String
                 newSong.bitRate = result[5][index] as! Int
                 newSong.compilation = result[7][index] as! Bool
-                newSong.uniqueID = result[8][index] as! Int
+                newSong.uniqueID = result[8][index] as! String
                 allSongs.append(newSong)
             }
             index = index + 1
@@ -58,6 +58,17 @@ class MainWindow: NSObject {
         selectiTunesTracks.tracks = allSongs
         //Show window
         selectiTunesTracks.spawnSelectiTunesTracksWindow()
+    }
+    
+
+    
+    @IBAction func switchButtonPressed(_ sender: AnyObject) {
+        let applescriptBridge = ApplescriptBridge()
+        for (index, song) in mainTableViewControls.iTunesDataArray.enumerated() {
+            let filepath = mainTableViewControls.finderDataArray[index].URL
+            applescriptBridge.replaceTrack(aUniqueID: song.uniqueID!, aFilepath: (filepath?.absoluteString.replacingOccurrences(of: "%20", with: " "))!)
+        }
+        
     }
     
 }

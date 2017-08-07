@@ -13,7 +13,7 @@ class SongCellData: NSObject {
     var name: String
     var artist: String?
     var URL: URL?
-    var uniqueID: Int?
+    var uniqueID: String?
     
     init(aName: String){
         name = aName
