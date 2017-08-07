@@ -12,6 +12,8 @@ class MainWindow: NSObject {
 
     @IBOutlet weak var selectiTunesTracks: SelectiTunesTracks!
     @IBOutlet weak var mainTableViewControls: MainTableViewControls!
+    @IBOutlet weak var readdSongs: NSButton!
+    @IBOutlet weak var loadFilesButton: NSButton!
     
     @IBAction func loadFinderSongs(_ sender: AnyObject) {
             let openPanel = NSOpenPanel()
@@ -65,10 +67,38 @@ class MainWindow: NSObject {
     @IBAction func switchButtonPressed(_ sender: AnyObject) {
         let applescriptBridge = ApplescriptBridge()
         for (index, song) in mainTableViewControls.iTunesDataArray.enumerated() {
-            let filepath = mainTableViewControls.finderDataArray[index].URL
-            applescriptBridge.replaceTrack(aUniqueID: song.uniqueID!, aFilepath: (filepath?.absoluteString.replacingOccurrences(of: "%20", with: " "))!)
+            var filepath: URL
+            if readdSongs.state == .off {filepath = mainTableViewControls.finderDataArray[index].URL!}
+            else {
+                filepath = applescriptBridge.getTrackFilepath(aUniqueID: mainTableViewControls.iTunesDataArray[index].uniqueID!) as URL
+                let fileManager = FileManager.default
+                do {
+                    let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(UUID().uuidString).appendingPathExtension(filepath.pathExtension)
+                    try fileManager.moveItem(at: filepath, to: url)
+                    filepath = url
+                }
+                catch let error as NSError {
+                    print("Ooops! Something went wrong: \(error)")
+                }
+                song.uniqueID = applescriptBridge.replaceTrack(aUniqueID: song.uniqueID!, aFilepath: (Bundle.main.path(forResource: "SUCCESS", ofType: ".mp3"))!)
+            }
+            _ = applescriptBridge.replaceTrack(aUniqueID: song.uniqueID!, aFilepath: (filepath.absoluteString.replacingOccurrences(of: "%20", with: " ")))
         }
-        
+        mainTableViewControls.finderDataArray.removeAll()
+        mainTableViewControls.iTunesDataArray.removeAll()
+        mainTableViewControls.finderTableView.reloadData()
+        mainTableViewControls.iTunesTableView.reloadData()
+    }
+    
+    @IBAction func readdSongsButtonPressed(_ sender: AnyObject){
+        if readdSongs.state == .off{
+            loadFilesButton.isEnabled = true
+            mainTableViewControls.finderTableView.isEnabled = true
+        }
+        else{
+            loadFilesButton.isEnabled = false
+            mainTableViewControls.finderTableView.isEnabled = false
+        }
     }
     
 }

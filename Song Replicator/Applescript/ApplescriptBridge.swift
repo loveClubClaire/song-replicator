@@ -40,11 +40,17 @@ class ApplescriptBridge: NSObject {
         return songs[0] as! iTunesSong
     }
 
-    func replaceTrack(aUniqueID: String, aFilepath: String){
-        print(aUniqueID)
-        print(aFilepath)
+    func replaceTrack(aUniqueID: String, aFilepath: String) -> String{
         let name = "replaceTrack:aFilePath:"
         let selector = NSSelectorFromString(name)
-        instance.perform(selector, with: aUniqueID, with: aFilepath)
+        let result = instance.perform(selector, with: aUniqueID, with: aFilepath)
+        return result?.takeUnretainedValue() as! String
+    }
+    
+    func getTrackFilepath(aUniqueID: String) -> NSURL{
+        let name = "getTrackFilepath:"
+        let selector = NSSelectorFromString(name)
+        let result = instance.perform(selector, with: aUniqueID)
+        return result?.takeUnretainedValue() as! NSURL
     }
 }

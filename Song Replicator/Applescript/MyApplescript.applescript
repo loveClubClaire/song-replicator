@@ -107,8 +107,18 @@ script MyApplescript
             end repeat
             --remove old track
             delete old_track
+            return persistent ID of new_track
         end tell
     end replaceTrack_aFilePath_
+    
+    on getTrackFilepath_(aUniqueID as string)
+        tell application "iTunes"
+            set old_track to tracks of playlist "Music" where persistent ID is equal to aUniqueID
+            set old_track to item 1 of old_track
+            set songLocation to get location of old_track
+            return songLocation
+        end tell
+    end getTrackFilepath_
     
     --I do not believe that the scripting bridge can access this function because it's not declared correctly for that. None of the underscores in the name
     --Guess that's a clever way of making a function private?

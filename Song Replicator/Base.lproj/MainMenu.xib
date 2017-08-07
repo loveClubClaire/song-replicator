@@ -30,7 +30,9 @@
         </customObject>
         <customObject id="bqi-Ya-y2H" customClass="MainWindow" customModule="Song_Replicator" customModuleProvider="target">
             <connections>
+                <outlet property="loadFilesButton" destination="kub-CG-3CA" id="GPe-nA-3EX"/>
                 <outlet property="mainTableViewControls" destination="ysM-Wb-7qf" id="dcw-Es-Za4"/>
+                <outlet property="readdSongs" destination="V67-il-Fbk" id="SB7-r2-3Wq"/>
                 <outlet property="selectiTunesTracks" destination="cVc-JN-Dwa" id="HRW-Ok-zn4"/>
             </connections>
         </customObject>
@@ -706,14 +708,14 @@
         <window title="Song Replicator" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="CustomMainWindow" customModule="Song_Replicator" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="501" height="654"/>
+            <rect key="contentRect" x="335" y="390" width="501" height="723"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="501" height="654"/>
+                <rect key="frame" x="0.0" y="0.0" width="501" height="723"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rdh-aS-JYc">
-                        <rect key="frame" x="14" y="606" width="113" height="32"/>
+                        <rect key="frame" x="14" y="675" width="113" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Load iTunes" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FtW-bS-SZH">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -724,7 +726,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNa-wG-CQf">
-                        <rect key="frame" x="210" y="606" width="81" height="32"/>
+                        <rect key="frame" x="210" y="675" width="81" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Switch" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HUj-Kk-ZDM">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -735,7 +737,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kub-CG-3CA">
-                        <rect key="frame" x="386" y="606" width="101" height="32"/>
+                        <rect key="frame" x="386" y="675" width="101" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Load Files" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fwo-GR-eFL">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -746,7 +748,7 @@
                         </connections>
                     </button>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="48" horizontalPageScroll="10" verticalLineScroll="48" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="co5-ev-mcC">
-                        <rect key="frame" x="-1" y="18" width="256" height="575"/>
+                        <rect key="frame" x="-1" y="-1" width="256" height="575"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" id="ItP-AY-QrW">
                             <rect key="frame" x="1" y="1" width="254" height="573"/>
@@ -821,7 +823,7 @@
                         </scroller>
                     </scrollView>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="48" horizontalPageScroll="10" verticalLineScroll="48" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llp-gJ-36k">
-                        <rect key="frame" x="263" y="18" width="239" height="575"/>
+                        <rect key="frame" x="263" y="-1" width="239" height="575"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" id="dzp-dL-5wZ">
                             <rect key="frame" x="1" y="1" width="237" height="573"/>
@@ -895,6 +897,17 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V67-il-Fbk">
+                        <rect key="frame" x="202" y="646" width="97" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="readd songs" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Hbi-4N-4Fu">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="readdSongsButtonPressed:" target="bqi-Ya-y2H" id="iOp-by-AQq"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <connections>
@@ -902,7 +915,7 @@
                 <outlet property="iTunesTableView" destination="YUX-gF-HNA" id="u6U-Gp-2Pa"/>
                 <outlet property="mainTableViewControls" destination="ysM-Wb-7qf" id="5Wb-B5-KWh"/>
             </connections>
-            <point key="canvasLocation" x="285.5" y="309"/>
+            <point key="canvasLocation" x="285.5" y="343.5"/>
         </window>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="nJC-uL-d92">
             <windowStyleMask key="styleMask" titled="YES"/>
