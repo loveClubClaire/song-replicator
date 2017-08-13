@@ -26,19 +26,6 @@ class ApplescriptBridge: NSObject {
         let rawTrackInfo = returnObject?.takeUnretainedValue() as! NSArray
         return rawTrackInfo as! [[Any]]
     }
-    
-    func getTrackProperties_(aUniqueID: String) -> iTunesSong {
-        //Older versions of iTunes with missing tracks will crash the application without explination. Update iTunes or fix the library
-        let name = "getTrack:"
-        let selector = NSSelectorFromString(name)
-        let result = instance.perform(selector, with: aUniqueID)
-        let rawSongs = result?.takeUnretainedValue() as! NSArray
-        let songs = NSMutableArray()
-        for song in rawSongs {
-            songs.add(iTunesSong().initWithString((song as! NSAppleEventDescriptor).debugDescription))
-        }
-        return songs[0] as! iTunesSong
-    }
 
     func replaceTrack(aUniqueID: String, aFilepath: String) -> String{
         let name = "replaceTrack:aFilePath:"

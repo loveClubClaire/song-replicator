@@ -20,13 +20,6 @@ script MyApplescript
         end tell
     end getTrackInfo
     
-    on getTrack_(aUniqueID as string)
-        tell application "iTunes"
-            set my_result to tracks of playlist "Music" where persistent ID is equal to aUniqueID
-            get properties of item 1 of my_result
-        end tell
-    end getPlaylist_
-    
     on replaceTrack_aFilePath_(aUniqueID as string, aFilePath as string)
         tell application "iTunes"
             --new_track is the song being added, old_track is the song being removed
