@@ -748,14 +748,14 @@
                         </connections>
                     </button>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="48" horizontalPageScroll="10" verticalLineScroll="48" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="co5-ev-mcC">
-                        <rect key="frame" x="-1" y="-1" width="256" height="575"/>
+                        <rect key="frame" x="-1" y="-1" width="256" height="641"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" id="ItP-AY-QrW">
-                            <rect key="frame" x="1" y="1" width="254" height="573"/>
+                            <rect key="frame" x="1" y="1" width="254" height="639"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" autosaveColumns="NO" rowHeight="46" rowSizeStyle="automatic" viewBased="YES" id="YUX-gF-HNA" customClass="GridClipTableView" customModule="Song_Replicator" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="254" height="573"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="254" height="639"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -822,22 +822,33 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V67-il-Fbk">
+                        <rect key="frame" x="195" y="646" width="110" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Re-Add Songs" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Hbi-4N-4Fu">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="readdSongsButtonPressed:" target="bqi-Ya-y2H" id="iOp-by-AQq"/>
+                        </connections>
+                    </button>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="48" horizontalPageScroll="10" verticalLineScroll="48" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llp-gJ-36k">
-                        <rect key="frame" x="263" y="-1" width="239" height="575"/>
+                        <rect key="frame" x="254" y="-1" width="248" height="641"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" id="dzp-dL-5wZ">
-                            <rect key="frame" x="1" y="1" width="237" height="573"/>
+                            <rect key="frame" x="1" y="1" width="246" height="639"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" autosaveColumns="NO" rowHeight="46" rowSizeStyle="automatic" viewBased="YES" id="Z00-gk-T3b" customClass="GridClipTableView" customModule="Song_Replicator" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="237" height="573"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="246" height="639"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="finderSongs" width="234" minWidth="40" maxWidth="1000" id="Q4M-Ld-Qok">
+                                        <tableColumn identifier="finderSongs" width="243" minWidth="40" maxWidth="1000" id="Q4M-Ld-Qok">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Finder Songs">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -851,11 +862,11 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
                                                 <tableCellView identifier="finderSongCell" id="wmw-W9-G4C" customClass="CustomTableCellView" customModule="Song_Replicator" customModuleProvider="target">
-                                                    <rect key="frame" x="1" y="1" width="234" height="46"/>
+                                                    <rect key="frame" x="1" y="1" width="243" height="46"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gdQ-ff-6QE">
-                                                            <rect key="frame" x="0.0" y="3" width="234" height="17"/>
+                                                            <rect key="frame" x="0.0" y="3" width="243" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="KSP-Fl-ipc">
                                                                 <font key="font" metaFont="system"/>
@@ -864,7 +875,7 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wGG-Ia-HwT">
-                                                            <rect key="frame" x="-1" y="26" width="234" height="17"/>
+                                                            <rect key="frame" x="-1" y="26" width="243" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="0Rw-Qs-2E0">
                                                                 <font key="font" metaFont="system"/>
@@ -889,7 +900,7 @@
                             </subviews>
                         </clipView>
                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="cmh-Bv-BcY">
-                            <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
+                            <rect key="frame" x="1" y="624" width="246" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="P3A-rs-ImX">
@@ -897,17 +908,6 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V67-il-Fbk">
-                        <rect key="frame" x="202" y="646" width="97" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="readd songs" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Hbi-4N-4Fu">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="readdSongsButtonPressed:" target="bqi-Ya-y2H" id="iOp-by-AQq"/>
-                        </connections>
-                    </button>
                 </subviews>
             </view>
             <connections>

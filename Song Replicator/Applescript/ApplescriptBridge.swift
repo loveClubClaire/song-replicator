@@ -43,7 +43,10 @@ class ApplescriptBridge: NSObject {
     func replaceTrack(aUniqueID: String, aFilepath: String) -> String{
         let name = "replaceTrack:aFilePath:"
         let selector = NSSelectorFromString(name)
-        let result = instance.perform(selector, with: aUniqueID, with: aFilepath)
+        var result: Unmanaged<AnyObject>? = nil
+        while  result == nil {
+            result = instance.perform(selector, with: aUniqueID, with: aFilepath)
+        }
         return result?.takeUnretainedValue() as! String
     }
     

@@ -40,7 +40,6 @@ script MyApplescript
             --Some metadata is encapsulated with a try block because those pieces of metadata can be null.
             --Details
             --Using work
-            log work of new_track
             set work of new_track to (work of old_track as string)
             set movement of new_track to (movement of old_track as string)
             set movement count of new_track to (movement count of old_track as integer)
@@ -68,6 +67,7 @@ script MyApplescript
             end try
             set comment of new_track to (comment of old_track as string)
             --Lyrics
+            next track
             set lyrics of new_track to (lyrics of old_track as string)
             --Options
             set shufflable of new_track to (shufflable of old_track as boolean)
@@ -76,12 +76,13 @@ script MyApplescript
             end try
             set bookmarkable of new_track to (bookmarkable of old_track as boolean)
             --Sorting
+            next track
             set sort album of new_track to (sort album of old_track as string)
             set sort artist of new_track to (sort artist of old_track as string)
             set sort album artist of new_track to (sort album artist of old_track as string)
             set sort name of new_track to (sort name of old_track as string)
             set sort composer of new_track to (sort composer of old_track as string)
-            
+    
             --Add the old tracks artwork to the new track
             set artCounter to 1
             
@@ -90,6 +91,7 @@ script MyApplescript
                 set data of artwork artCounter of new_track to myArt
                 set artCounter to artCounter + 1
             end repeat
+            
             --Replace the old track with the new track in every user made playlist
             set containing_playlists to user playlists of old_track
             repeat with aPlaylist in containing_playlists
