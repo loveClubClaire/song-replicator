@@ -82,7 +82,7 @@ class MainWindow: NSObject {
                 }
                 song.uniqueID = applescriptBridge.replaceTrack(aUniqueID: song.uniqueID!, aFilepath: (Bundle.main.path(forResource: "SUCCESS", ofType: ".mp3"))!)
             }
-            _ = applescriptBridge.replaceTrack(aUniqueID: song.uniqueID!, aFilepath: (filepath.absoluteString.replacingOccurrences(of: "%20", with: " ")))
+            _ = applescriptBridge.replaceTrack(aUniqueID: song.uniqueID!, aFilepath: filepath.absoluteString.removingPercentEncoding!)
         }
         mainTableViewControls.finderDataArray.removeAll()
         mainTableViewControls.iTunesDataArray.removeAll()
