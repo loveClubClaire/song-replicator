@@ -39,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		C025DC191F2D039B00C351E1 /* CustomMainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainWindow.swift; sourceTree = "<group>"; };
+		C045ABDE20B63A71006804E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C09B211B1F34D9270092ECA0 /* String+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extention.swift"; sourceTree = "<group>"; };
 		C0ACD6361F2FB1A600E4C260 /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainWindow.swift; path = "Song Replicator/UI Classes/MainWindow.swift"; sourceTree = SOURCE_ROOT; };
 		C0ACD6391F2FB92700E4C260 /* ApplescriptBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplescriptBridge.swift; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 		C0B145001F26DF21008E1593 = {
 			isa = PBXGroup;
 			children = (
+				C045ABDE20B63A71006804E7 /* README.md */,
 				C0B1450B1F26DF21008E1593 /* Song Replicator */,
 				C0B1451C1F26DF21008E1593 /* Song ReplicatorTests */,
 				C0B1450A1F26DF21008E1593 /* Products */,
