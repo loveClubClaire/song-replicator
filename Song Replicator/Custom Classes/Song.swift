@@ -111,11 +111,11 @@ class Song: NSObject {
             //First we make sure neither of the strings are empty, as this crashes the program.
             if title1 != "" && title2 != "" {
                 //If the first string starts with a non-letter than we change the result from false to true
-                if CharacterSet.letters.contains((title1.characters.first?.unicodeScalars.first)!) == false && CharacterSet.letters.contains((title2.characters.first?.unicodeScalars.first)!) == true {
+                if CharacterSet.letters.contains((title1.first?.unicodeScalars.first)!) == false && CharacterSet.letters.contains((title2.first?.unicodeScalars.first)!) == true {
                     toReturn = false
                 }
                 //If the second string starts with a non-letter than we change the result from true to false
-                if CharacterSet.letters.contains((title2.characters.first?.unicodeScalars.first)!) == false && CharacterSet.letters.contains((title1.characters.first?.unicodeScalars.first)!) == true {
+                if CharacterSet.letters.contains((title2.first?.unicodeScalars.first)!) == false && CharacterSet.letters.contains((title1.first?.unicodeScalars.first)!) == true {
                     toReturn = true
                 }
                 //If both strings begin with non-letter or letter characters, we don't change the compare result
@@ -147,11 +147,11 @@ class Song: NSObject {
             //First we make sure neither of the strings are empty, as this crashes the program.
             if title1 != "" && title2 != "" {
                 //If the first string starts with a non-letter than we change the result from false to true
-                if CharacterSet.letters.contains((title1.characters.first?.unicodeScalars.first)!) == false && CharacterSet.letters.contains((title2.characters.first?.unicodeScalars.first)!) == true {
+                if CharacterSet.letters.contains((title1.first?.unicodeScalars.first)!) == false && CharacterSet.letters.contains((title2.first?.unicodeScalars.first)!) == true {
                     toReturn = false
                 }
                 //If the second string starts with a non-letter than we change the result from true to false
-                if CharacterSet.letters.contains((title2.characters.first?.unicodeScalars.first)!) == false && CharacterSet.letters.contains((title1.characters.first?.unicodeScalars.first)!) == true {
+                if CharacterSet.letters.contains((title2.first?.unicodeScalars.first)!) == false && CharacterSet.letters.contains((title1.first?.unicodeScalars.first)!) == true {
                     toReturn = true
                 }
                 //If both strings begin with non-letter or letter characters, we don't change the compare result
@@ -178,14 +178,14 @@ class Song: NSObject {
         let theArticle = "the "
         let aArtical = "a "
         let anArtical = "an "
-        if string.characters.count > theArticle.characters.count && string.lowercased().hasPrefix(theArticle) {
-            return string.substring(from: string.index(string.startIndex, offsetBy: theArticle.characters.count))
+        if string.count > theArticle.count && string.lowercased().hasPrefix(theArticle) {
+            return String(string[(string.index(string.startIndex, offsetBy: theArticle.count))...])
         }
-        if string.characters.count > aArtical.characters.count && string.lowercased().hasPrefix(aArtical) {
-            return string.substring(from: string.index(string.startIndex, offsetBy: aArtical.characters.count))
+        if string.count > aArtical.count && string.lowercased().hasPrefix(aArtical) {
+            return String(string[(string.index(string.startIndex, offsetBy: aArtical.count))...])
         }
-        if string.characters.count > anArtical.characters.count && string.lowercased().hasPrefix(anArtical) {
-            return string.substring(from: string.index(string.startIndex, offsetBy: anArtical.characters.count))
+        if string.count > anArtical.count && string.lowercased().hasPrefix(anArtical) {
+            return String(string[(string.index(string.startIndex, offsetBy: anArtical.count))...])
         }
         else {
             return string

@@ -10,4 +10,4 @@ The Song Replicator has two modes. The first mode replaces the underlying audio 
 
 # Langauge
 
-The Song Replicator is programmed in Swift 3 and AppleScript. It uses the AppleScript scripting bridge to natively execute the AppleScript code. AppleScript is used to interface with iTunes and Swift is used for everything else. Some of the functions written in AppleScript seem inefficient but because some of iTunes AppleScript functions are broken, they're the best they can be. 
+The Song Replicator is programmed in Swift 4 and AppleScript. It uses the AppleScript scripting bridge to natively execute the AppleScript code. AppleScript is used to interface with iTunes and Swift is used for everything else. Some of the functions written in AppleScript seem inefficient but because some of iTunes AppleScript functions are broken, they're the best they can be. 
