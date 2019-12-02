@@ -2,7 +2,7 @@ script MyApplescript
     property parent : class "NSObject"
     
     on getTrackInfo()
-        tell application "iTunes"
+        tell application "Music"
             set my_result to {}
             set my_playlist to get playlist "Music"
             try
@@ -21,7 +21,7 @@ script MyApplescript
     end getTrackInfo
     
     on replaceTrack_aFilePath_(aUniqueID as string, aFilePath as string)
-        tell application "iTunes"
+        tell application "Music"
             --new_track is the song being added, old_track is the song being removed
             set newPOSIXFile to aFilePath
             set newFile to (newPOSIXFile as POSIX file)
@@ -107,7 +107,7 @@ script MyApplescript
     end replaceTrack_aFilePath_
     
     on getTrackFilepath_(aUniqueID as string)
-        tell application "iTunes"
+        tell application "Music"
             set old_track to tracks of playlist "Music" where persistent ID is equal to aUniqueID
             set old_track to item 1 of old_track
             set songLocation to get location of old_track
@@ -118,7 +118,7 @@ script MyApplescript
     --I do not believe that the scripting bridge can access this function because it's not declared correctly for that. None of the underscores in the name
     --Guess that's a clever way of making a function private?
     on sortPlaylist(aPlaylist, aPosition)
-        tell application "iTunes"
+        tell application "Music"
             set playlistLength to count of tracks of aPlaylist
             set aCount to aPosition
             repeat while aCount is less than playlistLength

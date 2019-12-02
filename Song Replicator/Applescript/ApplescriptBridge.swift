@@ -31,6 +31,7 @@ class ApplescriptBridge: NSObject {
         let name = "replaceTrack:aFilePath:"
         let selector = NSSelectorFromString(name)
         var result: Unmanaged<AnyObject>? = nil
+        //TODO: Seems that if the file names of the two tracks are identical, than Music won't allow a new song to be created. This causes the program to hang and should be fixed. 
         while  result == nil {
             result = instance.perform(selector, with: aUniqueID, with: aFilepath)
         }
