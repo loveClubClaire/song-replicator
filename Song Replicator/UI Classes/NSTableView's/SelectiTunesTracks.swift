@@ -27,6 +27,8 @@ class SelectiTunesTracks: NSObject, NSTableViewDataSource, NSTableViewDelegate {
     
     func spawnSelectiTunesTracksWindow(){
         lastSelectedAlbumRow = -1
+        //Empty masterTracks so no deleted songs are displayed 
+        masterTracks.removeAll()
         masterTracks.append(contentsOf: tracks)
         artistDataSource = Song.getAlbumArtists(Songs: tracks)
         artistTableView.reloadData()
